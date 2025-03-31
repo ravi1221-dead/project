@@ -1,6 +1,7 @@
-#spring.application.name=chatbox
-
 spring:
+  application:
+    name: chatbox
+
   data:
     mongodb:
       username: admin
@@ -9,5 +10,27 @@ spring:
       port: 27017
       database: chat_app
       authentication-database: admin
+
+  web:
+    cors:
+      allowed-origins: http://localhost:8081
+      allowed-methods: "*"
+      allowed-headers: "*"
+
 server:
-  port: 8088
+  port: 8088  # Chatbox runs on 8088
+
+---
+# Additional config for login project
+spring:
+  application:
+    name: login
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: registration
+
+server:
+  port: 8080  # Login project runs on 8080
